@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from database import index
 
 # Create a Flask app
 app = Flask(
@@ -7,7 +8,10 @@ app = Flask(
     static_folder='static'
 )
 
-names = ["Marilyn", "Manson"]
+#names = ["Marilyn", "Manson"]
+
+names = index()
+print(names)
 
 # Index page
 @app.route('/')
