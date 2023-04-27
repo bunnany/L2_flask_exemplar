@@ -1,11 +1,4 @@
-<!doctype html>
-<head>
-    <title>My First Flask Website</title>
-    <link href="../static/style.css" rel="stylesheet" type="text/css">
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>Hello, {{ name }}!</h1>
-    <p>
-        Welcome to your first Flask website
-    </p>
-</body>
+{% endblock %}
