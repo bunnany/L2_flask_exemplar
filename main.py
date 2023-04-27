@@ -10,7 +10,7 @@ app = Flask(
 # Index page
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', name="NYB")
 
 if __name__ == '__main__':
     # Run the Flask app
