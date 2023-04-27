@@ -7,10 +7,12 @@ app = Flask(
     static_folder='static'
 )
 
+names = ["Marilyn", "Manson"]
+
 # Index page
 @app.route('/')
 def index():
-    return render_template('index.html', name="NYB")
+    return render_template('index.html', names=names)
 
 if __name__ == '__main__':
     # Run the Flask app
