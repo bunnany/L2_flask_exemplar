@@ -13,6 +13,15 @@ def get_db():
     if db is None:
         db = g._database = sqlite3.connect("users.db")
         # Create table in here db.execute("CREATE")
+        db.execute("""CREATE TABLE IF NOT EXISTS Users (
+                    PersonID int,
+                    LastName varchar(255),
+                    FirstName varchar(255))""")
+        db.execute("""INSERT INTO Users (
+                    PersonID, LastName, FirstName)
+                    VALUES (0, 'Manson', 'Marilyn'),
+                    (1, 'Amos', 'Tori'),
+                    (2, 'Styles', 'Harry');""")
         return db
 
 
@@ -30,9 +39,10 @@ def close_connection(exception):
 def index():
     db = get_db()
     c = db.cursor()
-    c.execute("SELECT * FROM users")
+    c.execute("SELECT * FROM Users")
     users = c.fetchall()
-    return users
+    #return users
+    return render_template('index.html', users=users)
 
 
 # names = ["Marilyn", "Manson"]
